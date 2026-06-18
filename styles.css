@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
 :root {
     --bg-primary: #080710;
     --bg-secondary: #131224;
@@ -67,14 +69,6 @@ h1 {
     margin-top: 0.5rem;
 }
 
-.subtitle {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    font-weight: 300;
-    max-width: 500px;
-    line-height: 1.5;
-}
-
 .gallery-container {
     background: var(--bg-secondary);
     border: 1px solid var(--glass-border);
@@ -119,45 +113,6 @@ h1 {
     background-color: rgba(0, 0, 0, 0);
     pointer-events: none;
     transition: background-color var(--transition-speed) ease;
-}
-
-button.dark, button.light {
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    background: rgba(19, 18, 36, 0.75);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--text-primary);
-    padding: 0.6rem 1.2rem;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-button.dark:hover, button.light:hover {
-    background: var(--text-primary);
-    color: var(--bg-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-}
-
-button.light {
-    background: rgba(255, 255, 255, 0.85);
-    color: var(--bg-primary);
-    border-color: transparent;
-}
-
-button.light:hover {
-    background: var(--text-primary);
 }
 
 .thumb-bar-container {
@@ -214,15 +169,6 @@ button.light:hover {
     border-color: var(--accent-gold);
     box-shadow: 0 0 15px rgba(255, 207, 86, 0.4);
     transform: scale(1.05);
-}
-
-footer {
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    font-weight: 300;
-    opacity: 0.7;
-    margin-top: 1rem;
 }
 
 @media (max-width: 768px) {

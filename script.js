@@ -1,6 +1,5 @@
 const displayedImage = document.querySelector('.displayed-img');
 const thumbBar = document.querySelector('.thumb-bar');
-const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
 // List of actual image filenames inside the images directory
@@ -49,19 +48,4 @@ images.forEach((imagePath, index) => {
             displayedImage.classList.remove('fade-out');
         }, 200);
     });
-});
-
-// Darken / Lighten button handler with modern class state toggling
-btn.addEventListener('click', () => {
-    const btnClass = btn.getAttribute('class');
-
-    if (btnClass === 'dark') {
-        btn.setAttribute('class', 'light');
-        btn.textContent = 'Lighten View';
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.55)';
-    } else {
-        btn.setAttribute('class', 'dark');
-        btn.textContent = 'Darken View';
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-    }
 });
