@@ -1,47 +1,106 @@
+/* Core Layout */
 body {
-    width: 800px;
+    max-width: 850px;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
+    padding: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #0f172a; /* Sleek slate dark background */
+    color: #f8fafc; /* Crisp light text */
 }
 
 h1 {
-    color: #333;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.02em;
+    color: #f1f5f9;
 }
 
+/* Gallery Container */
+.gallery-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-container {
+    width: 100%;
+    background-color: #1e293b; /* Slate card background */
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Display Image */
 .full-img {
     position: relative;
-    display: block;
-    width: 800px;
+    width: 100%;
     height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #020617; /* Deep dark frame */
 }
 
 .displayed-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    pointer-events: none; /* Prevents browser hover icons */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.displayed-img.fade-out {
+    opacity: 0.25;
 }
 
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 800px;
-    height: 500px;
-    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none;
 }
 
-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 10px 15px;
-    cursor: pointer;
+/* Thumbnail Grid */
+.thumb-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .thumb-bar img {
-    width: 20%;
-    float: left;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 8px;
     cursor: pointer;
+    opacity: 0.6;
+    border: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.thumb-bar img:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}
+
+.thumb-bar img.active-thumb {
+    opacity: 1;
+    border-color: #3b82f6; /* Modern blue active highlight */
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    transform: scale(1.02);
+}
+
+/* Responsive adjustment */
+@media (max-width: 640px) {
+    .full-img {
+        height: 350px;
+    }
+    .thumb-bar {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
