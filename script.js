@@ -1,8 +1,6 @@
 const displayedImage = document.querySelector('.displayed-img');
 const thumbBar = document.querySelector('.thumb-bar');
 const overlay = document.querySelector('.overlay');
-
-// List of actual image filenames inside the images directory
 const images = [
     'FIFA WORLD CUP 2026.jpg',
     'Argentina National Team Fifa World Cup 2026 USA-CANADA-MEXICO.jpg',
@@ -11,17 +9,13 @@ const images = [
     'Portugal National Team Fifa World Cup 2026 USA-CANADA-MEXICO.jpg',
     'image 3.jpg'
 ];
-
-// Reference to current active thumbnail
 let activeThumb = null;
 
-// Dynamically generate thumbnails and add click handlers
 images.forEach((imagePath, index) => {
     const newImage = document.createElement('img');
     newImage.setAttribute('src', `images/${imagePath}`);
     newImage.setAttribute('alt', `World Cup Poster ${index + 1}`);
     
-    // Set the first image thumbnail as active initially
     if (index === 0) {
         newImage.classList.add('active-thumb');
         activeThumb = newImage;
@@ -29,18 +23,15 @@ images.forEach((imagePath, index) => {
     
     thumbBar.appendChild(newImage);
 
-    // Event listener for swapping the display image with fade transition
     newImage.addEventListener('click', () => {
-        if (activeThumb === newImage) return; // Already displaying this image
+        if (activeThumb === newImage) return; 
 
-        // Remove active class from previous thumbnail and add to current
         if (activeThumb) {
             activeThumb.classList.remove('active-thumb');
         }
         newImage.classList.add('active-thumb');
         activeThumb = newImage;
 
-        // Apply smooth transition
         displayedImage.classList.add('fade-out');
         setTimeout(() => {
             displayedImage.setAttribute('src', `images/${imagePath}`);
