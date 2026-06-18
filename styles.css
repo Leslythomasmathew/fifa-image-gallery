@@ -1,178 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
-
-:root {
-    --bg-primary: #080710;
-    --bg-secondary: #131224;
-    --text-primary: #ffffff;
-    --text-secondary: #b0afc5;
-    --accent-gold: #ffcf56;
-    --accent-blue: #3b82f6;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --border-radius: 16px;
-    --transition-speed: 0.3s;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    background-color: var(--bg-primary);
-    background-image: radial-gradient(circle at 50% 0%, #1c183a 0%, var(--bg-primary) 70%);
-    color: var(--text-primary);
-    font-family: 'Outfit', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem;
-}
-
-.gallery-wrapper {
-    width: 100%;
-    max-width: 960px;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-header {
+    width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+    background-color: #f4f4f4;
 }
-
-
 
 h1 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #ffffff 40%, var(--text-secondary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 0.5rem;
-}
-
-.gallery-container {
-    background: var(--bg-secondary);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    color: #333;
 }
 
 .full-img {
     position: relative;
-    width: 100%;
-    height: 520px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
-    background-color: #06050b;
+    display: block;
+    width: 800px;
+    height: 500px;
 }
 
 .displayed-img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Contain works better for varied poster aspect ratios without stretching */
-    background-color: #06050b;
-    transition: opacity var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out;
+    object-fit: cover;
     pointer-events: none; /* Prevents Edge browser visual search & image edit hover overlays */
+    transition: opacity 0.2s ease-in-out;
 }
 
-/* Image fade transition classes applied via JS */
 .displayed-img.fade-out {
     opacity: 0.2;
-    transform: scale(0.98);
 }
 
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 800px;
+    height: 500px;
     background-color: rgba(0, 0, 0, 0);
-    pointer-events: none;
-    transition: background-color var(--transition-speed) ease;
-}
-
-.thumb-bar-container {
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-}
-
-/* Scrollbar styling */
-.thumb-bar-container::-webkit-scrollbar {
-    height: 6px;
-}
-
-.thumb-bar-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 10px;
-}
-
-.thumb-bar-container::-webkit-scrollbar-thumb {
-    background: var(--glass-border);
-    border-radius: 10px;
-}
-
-.thumb-bar-container::-webkit-scrollbar-thumb:hover {
-    background: var(--text-secondary);
-}
-
-.thumb-bar {
-    display: flex;
-    gap: 0.8rem;
-    width: max-content;
-    padding: 0.2rem;
 }
 
 .thumb-bar img {
-    width: 120px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
+    width: 20%;
+    float: left;
     cursor: pointer;
-    opacity: 0.6;
     border: 2px solid transparent;
-    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.thumb-bar img:hover {
-    opacity: 0.95;
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
 .thumb-bar img.active-thumb {
-    opacity: 1;
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 15px rgba(255, 207, 86, 0.4);
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    
-    .full-img {
-        height: 380px;
-    }
-    
-    .thumb-bar img {
-        width: 100px;
-        height: 70px;
-    }
+    border: 2px solid #333;
 }
